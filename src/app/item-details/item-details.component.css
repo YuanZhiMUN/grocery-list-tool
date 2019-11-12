@@ -1,0 +1,12 @@
+.card {
+    max-width: 400px;
+    margin: auto;
+}
+
+.button{
+    padding-left: 300px;
+}
+
+.myCart{
+    float: right;
+ } 

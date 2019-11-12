@@ -1,0 +1,25 @@
+<div class="list">
+    <h2>My Cart</h2>
+
+    <div *ngIf="shoppingList.length === 0">
+        <p>You have no item right now!</p>
+    </div>
+    <mat-list role="list" id="listItem">
+        <mat-list-item role="listitem" 
+            *ngFor="let item of shoppingList;
+            let i = index;"
+            [style.background-color] = "isPaid[i]  ? '#99b2f7' : 'white'"
+        >
+            {{item.name}}
+            <div id="buttonGroup">
+                <button mat-stroked-button color="primary" (click)="isPaid[i]=!isPaid[i]">Mark as paid</button>
+                <button mat-stroked-button color="accent" (click)="addToCart(item)">Add</button>
+                <button mat-stroked-button color="accent" (click)="deleteItem(item)">Delete</button>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>
+
+<div class="backButton">
+    <button mat-mini-fab routerLink="/dashboard">Back</button>
+</div>

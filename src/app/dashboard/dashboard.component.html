@@ -1,0 +1,20 @@
+<div class="header">
+  <button mat-stroked-button color="warn" matBadge="{{cartNumber}}" matBadgePosition="before" matBadgeColor="accent" class="myCart" routerLink="/itemlist">My Cart</button>
+  <h3 id="dashboardtitle">Gorecery List</h3>
+</div>
+<div class="gorecerylist">
+<mat-card class="card" *ngFor="let item of items">
+  <img mat-card-image src={{item.src}} alt={{item.name}}>
+  <mat-card-content>
+    <p>
+      {{item.name}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+      <div class="button">
+          <button mat-mini-fab (click)="addToCart(item)">Add</button>
+          <button mat-mini-fab routerLink="/details/{{item.name}}">Details</button>
+      </div>
+  </mat-card-actions>
+</mat-card>
+</div>

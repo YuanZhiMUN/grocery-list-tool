@@ -1,0 +1,34 @@
+<button mat-stroked-button color="warn" 
+    matBadge="{{cartNumber}}" 
+    matBadgePosition="before" 
+    matBadgeColor="accent" 
+    class="myCart" 
+    routerLink="/itemlist">
+    My Cart
+</button>
+<mat-card class="card">
+    <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>{{item.name | uppercase}} Details</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src={{item.src}} alt={{item.name}}>
+    <mat-card-content>
+        <p>
+            {{item.note}}
+        </p>
+        <p *ngIf="item.comment">{{item.comment}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="Comments" (keyup)="onKey($event)">
+            </mat-form-field>
+        </form>
+        <button mat-button (click)="addComment(item)">Save</button>
+        <button mat-button (click)="cancelComment(item)">Cancle</button>
+        <div class="button">
+            <button mat-mini-fab (click)="addToCart(item)">Add</button>
+            <button mat-mini-fab (click)="goBack()">Back</button>
+        </div>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,12 @@
+
+.list {
+    text-align:center;
+}
+
+#listItem {
+    display: inline-block;
+}
+
+.backButton {
+    float: right;
+}
